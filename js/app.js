@@ -92,7 +92,7 @@ document.querySelector("span.icon").addEventListener("click", function () {
   });
 });
 
-//----------------------Additional----------------------//
+//----------------------testing new feature----------------------//
 
 var scrolling;
 
