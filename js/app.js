@@ -37,13 +37,18 @@ for (let i of sections) {
 var con = document.querySelector(".page__header nav ul");
 con.appendChild(holder);
 
-// Add class 'active' to section when near top of viewport
+// Add class 'active' to section when near top of viewport and add class for nav items .
 function add_rem_active() {
-  for (let el of document.querySelectorAll("main section ")) {
+  let links = document.querySelectorAll(".page__header nav ul li");
+  for (let el of document.querySelectorAll("main section")) {
     if (isScrolledIntoView(el)) {
       el.classList.add("active");
+      let ind_ = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+      links[ind_].classList.add("nav-active");
     } else {
       el.classList.remove("active");
+      let ind = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+      links[ind].classList.remove("nav-active");
     }
   }
 }
@@ -91,5 +96,3 @@ document.querySelector("span.icon").addEventListener("click", function () {
     behavior: "smooth",
   });
 });
-
-
