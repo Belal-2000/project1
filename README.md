@@ -1,8 +1,5 @@
 # Landing Page Project
 
-## Table of Contents
-
-* [Instructions](#instructions)
-
 ## Instructions
+*you can test the function that hides the nav bar from branch test ..
 
