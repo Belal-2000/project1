@@ -96,7 +96,6 @@ document.querySelector("span.icon").addEventListener("click", function () {
     behavior: "smooth",
   });
 });
-
 //----------------------testing new feature----------------------//
 
 var scrolling;
