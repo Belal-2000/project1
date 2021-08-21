@@ -94,42 +94,42 @@ document.querySelector("span.icon").addEventListener("click", function () {
 
 //----------------------Additional----------------------//
 
-// var scrolling;
+var scrolling;
 
-// function hide() {
-//   if (!(window.scrollY < 250) && scrolling == false) {
-//     let header = document.querySelector(".page__header");
-//     header.classList.add("hide");
-//   } else {
-//     let header = document.querySelector(".page__header");
-//     header.classList.remove("hide");
-//   }
-// }
+function hide() {
+  if (!(window.scrollY < 250) && scrolling == false) {
+    let header = document.querySelector(".page__header");
+    header.classList.add("hide");
+  } else {
+    let header = document.querySelector(".page__header");
+    header.classList.remove("hide");
+  }
+}
 
-// window.addEventListener("scroll", function () {
-//   if (
-//     !document.querySelector(".page__header").classList.contains("hide") &&
-//     window.scrollY > 250 &&
-//     window.scrollY !== 0
-//   ) {
-//     scrolling = false;
-//     let time = 4500;
-//     var time_ = setTimeout(hide, time);
-//   } else {
-//     re_assign();
-//     scrolling = true;
-//     document.querySelector(".page__header").classList.remove("hide");
-//   }
-// });
+window.addEventListener("scroll", function () {
+  if (
+    !document.querySelector(".page__header").classList.contains("hide") &&
+    window.scrollY > 250 &&
+    window.scrollY !== 0
+  ) {
+    scrolling = false;
+    let time = 4500;
+    var time_ = setTimeout(hide, time);
+  } else {
+    re_assign();
+    scrolling = true;
+    document.querySelector(".page__header").classList.remove("hide");
+  }
+});
 
-// function re_assign() {
-//   var id = setInterval(force, 10);
-//   function force() {
-//     scrolling = true;
-//   }
-//   var set_t = setTimeout(function () {
-//     clearInterval(id);
-//     scrolling = false;
-//     hide();
-//   }, 3000);
-// }
+function re_assign() {
+  var id = setInterval(force, 10);
+  function force() {
+    scrolling = true;
+  }
+  var set_t = setTimeout(function () {
+    clearInterval(id);
+    scrolling = false;
+    hide();
+  }, 3000);
+}
