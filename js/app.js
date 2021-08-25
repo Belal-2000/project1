@@ -7,12 +7,16 @@ document.querySelector("#section1").classList.add("active");
  *
  */
 
-function isScrolledIntoView(e) {
+function isScrolledIntoView(e, x, y) {
   var element = e;
   var position = element.getBoundingClientRect();
 
   // checking for element visibility ..
-  return position.top + 20 >= 0 && position.bottom - 10 <= window.innerHeight;
+  if (x && y) {
+    return position.top + x >= 0 && position.bottom - y <= window.innerHeight;
+  } else {
+    return position.top + 20 >= 0 && position.bottom - 10 <= window.innerHeight;
+  }
 }
 
 /**
@@ -41,14 +45,46 @@ con.appendChild(holder);
 function add_rem_active() {
   let links = document.querySelectorAll(".page__header nav ul li");
   for (let el of document.querySelectorAll("main section")) {
-    if (isScrolledIntoView(el)) {
-      el.classList.add("active");
-      let ind_ = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
-      links[ind_].classList.add("nav-active");
+    if (window.innerWidth > 700) {
+      if (isScrolledIntoView(el)) {
+        el.classList.add("active");
+        let ind_ = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind_].classList.add("nav-active");
+      } else {
+        el.classList.remove("active");
+        let ind = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind].classList.remove("nav-active");
+      }
+    } else if (window.innerWidth > 380) {
+      if (isScrolledIntoView(el.querySelector("p"), 0, 0)) {
+        el.classList.add("active");
+        let ind_ = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind_].classList.add("nav-active");
+      } else {
+        el.classList.remove("active");
+        let ind = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind].classList.remove("nav-active");
+      }
+    } else if (window.innerWidth <= 380) {
+      if (isScrolledIntoView(el.querySelector("p"), 50, 50)) {
+        el.classList.add("active");
+        let ind_ = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind_].classList.add("nav-active");
+      } else {
+        el.classList.remove("active");
+        let ind = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind].classList.remove("nav-active");
+      }
     } else {
-      el.classList.remove("active");
-      let ind = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
-      links[ind].classList.remove("nav-active");
+      if (isScrolledIntoView(el.querySelector("p"), 150, 50)) {
+        el.classList.add("active");
+        let ind_ = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind_].classList.add("nav-active");
+      } else {
+        el.classList.remove("active");
+        let ind = parseInt(el.getAttribute("data-nav").split(" ")[1]) - 1;
+        links[ind].classList.remove("nav-active");
+      }
     }
   }
 }
