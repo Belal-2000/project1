@@ -96,6 +96,7 @@ document.querySelector("span.icon").addEventListener("click", function () {
         behavior: "smooth",
     });
 });
+
 //----------------------testing new feature----------------------//
 
 const HEADER = document.querySelector(".page__header");
@@ -126,3 +127,4 @@ let hide_ = function () {
 
 window.addEventListener("scroll", debounce(hide, (timeout = 1000)));
 window.addEventListener("scroll", hide_);
+  
